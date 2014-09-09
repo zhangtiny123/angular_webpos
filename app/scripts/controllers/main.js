@@ -9,9 +9,5 @@
  */
 angular.module('angularWebposApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.cart_count = get_cart_items_length();
   });

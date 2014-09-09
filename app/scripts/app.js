@@ -23,10 +23,18 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: '../views/product_list.html',
+      .when('/product_list', {
+        templateUrl: 'views/product_list.html',
         controller: 'ProductListCtrl'
       })
+        .when('/pay_page', {
+            templateUrl: 'views/pay_page.html',
+            controller: 'PayPageCtrl'
+        })
+        .when('/cart', {
+            templateUrl: 'views/cart.html',
+            controller: 'CartCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });

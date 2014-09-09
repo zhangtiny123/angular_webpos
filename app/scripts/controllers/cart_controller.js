@@ -1,3 +1,6 @@
+/**
+ * Created by tiny on 14-9-9.
+ */
 'use strict';
 
 /**
@@ -8,6 +11,6 @@
  * Controller of the angularWebposApp
  */
 angular.module('angularWebposApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.cart_count = get_cart_items_length();
-  });
+    .controller('CartCtrl', function ($scope) {
+        $scope.cart_count = get_cart_items_length();
+    });

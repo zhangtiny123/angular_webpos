@@ -8,7 +8,7 @@
  * Controller of the angularWebposApp
  */
 angular.module('angularWebposApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('ProductListCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

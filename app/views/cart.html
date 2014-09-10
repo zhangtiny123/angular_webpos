@@ -31,6 +31,7 @@
             <div class="panel-body">
                 <table ng-table="tableParams" class="table table-bordered">
                     <thead>
+
                     <td>分类</td>
                     <td>名称</td>
                     <td>单价（元）</td>
@@ -38,6 +39,8 @@
                     <td>数量</td>
                     <td>小计</td>
                     </thead>
+
+                    <tbody >
                     <tr ng-repeat="product in products">
                         <td data-tittle="类别">
                             {{product.type}}
@@ -59,9 +62,11 @@
                             </div>
                         </td>
                         <td data-tittle="小计">
-                            {{product.total_price}}
+                            {{product.total_price}}元<span ng-show="product.promotion_number != 0">(原价：{{product.price * product.count}}元)</span>
                         </td>
                     </tr>
+                    </tbody>
+
                 </table>
                 <div class="side-space text-right">
                 <span>总计：{{total_payments}}元</span>

@@ -1,10 +1,100 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div ng-controller="PayPageCtrl">
+    <nav class="navbar navbar-inverse my_nav" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
 
-</body>
-</html>
+                <a class="navbar-brand" ng-click="to_main_page()">Let's Go</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ><a ng-click="to_main_page()">主页</a></li>
+                    <li><a ng-click="to_product_list()">商品列表</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ng-click="to_cart()"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{cart_count}})</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading my_panel_head_left">
+                <h3 class="panel-title">购物清单</h3>
+            </div>
+            <div id="pay_panel_body" class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <td>分类</td>
+                    <td>名称</td>
+                    <td>单价（元）</td>
+                    <td>单位</td>
+                    <td>数量</td>
+                    <td>小计</td>
+                    </thead>
+                    <tbody >
+                    <tr ng-repeat="product in products">
+                        <td data-tittle="类别">
+                            {{product.type}}
+                        </td>
+                        <td data-tittle="名称">
+                            {{product.name}}
+                        </td>
+                        <td data-tittle="单价（元）">
+                            {{product.price}}
+                        </td>
+                        <td data-tittle="单位">
+                            {{product.unit}}
+                        </td>
+                        <td data-tittle="数量">
+                            {{product.count}}
+                        </td>
+                        <td data-tittle="小计">
+                            {{product.total_price}}元<span ng-show="product.promotion_number != 0">(原价：{{product.price * product.count}}元)</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel-heading my_panel_head_left">
+                <h3 class="panel-title">赠送商品</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <td>分类</td>
+                    <td>名称</td>
+                    <td>数量</td>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in products_in_promotion">
+                            <td data-tittle="分类">
+                                {{product.type}}
+                            </td>
+                            <td data-tittle="名称">
+                                {{product.name}}
+                            </td>
+                            <td data-tittle="数量">
+                                {{product.promotion_number}}
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="side-space text-right">
+                    <p>总计：{{total_payments}}元</p>
+                    <p>节省：{{saved_money}}元</p>
+                    <p><a class="btn btn-primary btn-lg" ng-click="sure_to_pay()">确认</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

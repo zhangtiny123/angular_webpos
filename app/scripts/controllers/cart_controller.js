@@ -20,10 +20,15 @@ angular.module('angularWebposApp')
             minus_product(barcode);
 
             var cart_items_reload = get_cart_items();
-            var item_list = printInventory(cart_items_reload);
-            $scope.products = item_list;
-            $scope.cart_count = cart_items_reload.length;
-            $scope.total_payments = calculate_total_payments(item_list);
+            if(cart_items_reload != 0) {
+                var item_list = printInventory(cart_items_reload);
+                $scope.products = item_list;
+                $scope.cart_count = cart_items_reload.length;
+                $scope.total_payments = calculate_total_payments(item_list);
+            }
+            else {
+                $location.path('/product_list');
+            }
         };
 
         $scope.plus_count = function(barcode) {

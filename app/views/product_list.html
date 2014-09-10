@@ -1,4 +1,4 @@
-<div id="product_list_page" ng-controller="ProductListCtrl">
+<div ng-controller="ProductListCtrl">
     <nav class="navbar navbar-inverse my_nav" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,13 +10,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li ><a href="../index.html">主页</a></li>
+                    <li ><a ng-click="to_main()">主页</a></li>
                     <li class="active"><a href="#">商品列表</a></li>
 
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{cart_count}})</a></li>
+                    <li><a ng-click="to_cart()"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{cart_count}})</a></li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->

@@ -15,7 +15,7 @@ function add_product(barcode) {
     localStorage.cart_items = JSON.stringify(cart_items);
 
 
-    refresh_product_list();
+//    refresh_product_list();
 }
 
 function refresh_product_list() {

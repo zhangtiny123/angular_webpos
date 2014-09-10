@@ -1,0 +1,74 @@
+<div ng-controller="CartCtrl">
+    <nav class="navbar navbar-inverse my_nav" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a class="navbar-brand" ng-click="go_to_main()" >Let's Go</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ><a ng-click="go_to_main()">主页</a></li>
+                    <li ><a ng-click="go_to_product_list()">商品列表</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li  class="active"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{cart_count}})</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading my_panel_head_right">
+                <h3 class="panel-title">购物清单</h3>
+            </div>
+            <div class="panel-body">
+                <table ng-table="tableParams" class="table table-bordered">
+                    <thead>
+                    <td>分类</td>
+                    <td>名称</td>
+                    <td>单价（元）</td>
+                    <td>单位</td>
+                    <td>数量</td>
+                    <td>小计</td>
+                    </thead>
+                    <tr ng-repeat="product in products">
+                        <td data-tittle="类别">
+                            {{product.type}}
+                        </td>
+                        <td data-tittle="名称">
+                            {{product.name}}
+                        </td>
+                        <td data-tittle="单价（元）">
+                            {{product.price}}
+                        </td>
+                        <td data-tittle="单位">
+                            {{product.unit}}
+                        </td>
+                        <td data-tittle="数量">
+                            <div class="btn-group">
+                                <button class="btn btn-default" ng-click="minus_count(product.barcode)">-</button>
+                                <button class="btn btn-default" disabled="disabled">{{product.count}}</button>
+                                <button class="btn btn-default" ng-click="plus_count(product.barcode)">+</button>
+                            </div>
+                        </td>
+                        <td data-tittle="小计">
+                            {{product.total_price}}
+                        </td>
+                    </tr>
+                </table>
+                <div class="side-space text-right">
+                <span>总计：{{total_payments}}元</span>
+                <p><a id="pay_button" class="btn btn-primary btn-lg" ng-click="pay_for_it()">付款</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

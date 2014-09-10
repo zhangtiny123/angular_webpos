@@ -1,4 +1,4 @@
-<div ng-controller="MainCtrl">
+    <div ng-controller="MainCtrl">
     <nav class="navbar navbar-inverse my_nav" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,7 +16,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="views/cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{cart_count}})</a></li>
+                    <li><a ng-click="go_to_cart()"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{cart_count}})</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
